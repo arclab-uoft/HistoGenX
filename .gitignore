@@ -3,6 +3,8 @@ data/
 notebooks/
 .ipynb_checkpoints/
 
+logs/
+
 # Python
 __pycache__/
 *.pyc

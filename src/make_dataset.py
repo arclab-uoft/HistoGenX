@@ -13,7 +13,7 @@ import subprocess
 # ------------------------------------------------------------------------------------------------------------------
 print("Load the main dataset initially containing images")
 
-ds = load_dataset("dakomura/tcga-ut", "internal")
+ds = load_dataset("dakomura/tcga-ut", "external")
 ds_train = ds["train"].filter(lambda x: x["json"]["label"] == "Breast_invasive_carcinoma" and x["__key__"][13:15] == '01' )
 ds_valid = ds["valid"].filter(lambda x: x["json"]["label"] == "Breast_invasive_carcinoma" and x["__key__"][13:15] == '01')
 ds_test = ds["test"].filter(lambda x: x["json"]["label"] == "Breast_invasive_carcinoma" and x["__key__"][13:15] == '01')
@@ -36,10 +36,12 @@ print(f"Using device: {device}")
 # Load the Backbone
 backbone_pth = os.path.join(PROJECT_DIR, "data", "resnet50_pretrained.pth")
 if os.path.exists(backbone_pth):
+    print("yess")
     state_dict = torch.load(backbone_pth, map_location="cpu")
     backbone = models.resnet50(weights=None)
     backbone.load_state_dict(state_dict)
 else:
+    print("yess")
     backbone = models.resnet50(weights=ResNet50_Weights.DEFAULT)
     torch.save(backbone.state_dict(), backbone_pth)
 
@@ -129,7 +131,7 @@ ds_valid = ds_valid.map(mapper)
 ds_test = ds_test.map(mapper)
 # ------------------------------------------------------------------------------------------------------------------
 
-
+print("yesssssssssss")
 # ------------------------------------------------------------------------------------------------------------------
 print("Store the 'dataset' folder and make the tarball")
 
