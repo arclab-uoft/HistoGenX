@@ -6,6 +6,8 @@ HistoGenX is a multimodal contrastive learning framework that aligns H&E histopa
   <img src="framework.png" alt="Overview of the HistoGenX framework" width="850">
 </p>
 
+**Paper:** [Multimodal Contrastive Alignment of Histopathology and Bulk Transcriptomics in Breast Cancer](https://doi.org/10.21203/rs.3.rs-9817623/v1)
+
 
 
 ## Setup
